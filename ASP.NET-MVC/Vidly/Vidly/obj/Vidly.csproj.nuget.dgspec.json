@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj": {}
+  },
+  "projects": {
+    "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj",
+        "projectName": "Vidly",
+        "projectPath": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj",
+        "packagesPath": "/Users/a.farghaly/.nuget/packages/",
+        "outputPath": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/a.farghaly/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools.DotNet": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.17, )"
+            },
+            "MySql.Data.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[8.0.17, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Pomelo.JsonObject": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
