@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Mvc;
@@ -24,14 +26,74 @@ namespace Vidly.Controllers
         }
 
         // Form
-        public ActionResult New()
+        public IActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             }; 
-            return View(viewModel);
+            return View("CustomerForm",viewModel);
+        }
+
+        // Create Action Setup
+        [HttpPost]
+        // Token validation
+        [ValidateAntiForgeryToken]
+        public IActionResult Save(Customer customer)
+        {
+            // Adding Validations
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
+            // Check if Id == 0 and if it is then it means it is a new customer
+            if (customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+               // To update an entity we need to retrieve it from db 1st
+               var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+               
+               // Modify Props either by 
+                    // 1) TryUpdateModel() method
+
+//                    TryUpdateModelAsync(customerInDb);
+
+                    // 2) Manually set the props of customer objs
+                    
+                    customerInDb.Name = customer.Name;
+                    customerInDb.Birthdate = customer.Birthdate;
+                    customerInDb.MembershipType = customer.MembershipType;
+                    customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                        
+                        // Or USE AutoMapper Library - AutoMapper: Convention based Mapping tool
+
+    //                    Mapper.Map(customer, customerInDb);
+
+            }
+            
+            // Save Changes
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
+
+            return RedirectToAction("Index", "Customers");
         }
 
         public ViewResult Index()
@@ -51,5 +113,23 @@ namespace Vidly.Controllers
             return View(customer);
         }
 
+        public IActionResult Edit(int id)
+        {
+            // Get the customer with the specific Id from the db
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            
+            // If existing customer exist in db it will be returned otherwise null 
+            if (customer == null)
+            {
+                return BadRequest();
+            }
+
+            var viewModel = new CustomerFormViewModel()
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", viewModel);
+        }
     }
 }
