@@ -72,6 +72,17 @@ body {
   background-color: #fff;
 }
 
+/*!* Validation styles*/
+/*-------------------------------------------------- *!*/
+/*.field-validation-error {*/
+/*  color: red;*/
+/*}*/
+
+/*.input-validation-error {*/
+/*  border: 2px solid red;*/
+/*}*/
+
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
