@@ -13263,17 +13263,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj",
+      "projectUniqueName": "/Users/a.farghaly/Desktop/GitHub/cSharp/ASP.NET-MVC/Vidly/Vidly/Vidly.csproj",
       "projectName": "Vidly",
-      "projectPath": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj",
+      "projectPath": "/Users/a.farghaly/Desktop/GitHub/cSharp/ASP.NET-MVC/Vidly/Vidly/Vidly.csproj",
       "packagesPath": "/Users/a.farghaly/.nuget/packages/",
-      "outputPath": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/obj/",
+      "outputPath": "/Users/a.farghaly/Desktop/GitHub/cSharp/ASP.NET-MVC/Vidly/Vidly/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/a.farghaly/.nuget/NuGet/NuGet.Config"
+        "/Users/a.farghaly/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"

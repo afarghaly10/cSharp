@@ -25,7 +25,8 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        // Form
+        // New Customer Form
+        // -------------------------------------------------------------
         public IActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -34,10 +35,31 @@ namespace Vidly.Controllers
                 Customer = new Customer(),
                 MembershipTypes = membershipTypes
             }; 
-            return View("CustomerForm",viewModel);
+            return View(viewModel);
+        }
+        // Edit Customer Form
+        // -------------------------------------------------------------
+        public IActionResult Edit(int id)
+        {
+            // Get the customer with the specific Id from the db
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            
+            // If existing customer exist in db it will be returned otherwise null 
+            if (customer == null)
+            {
+                return BadRequest();
+            }
+
+            var viewModel = new CustomerFormViewModel()
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", viewModel);
         }
 
-        // Create Action Setup
+        // Save Action Setup
+        // -------------------------------------------------------------
         [HttpPost]
         // Token validation
         [ValidateAntiForgeryToken]
@@ -111,25 +133,6 @@ namespace Vidly.Controllers
                 return BadRequest();
 
             return View(customer);
-        }
-
-        public IActionResult Edit(int id)
-        {
-            // Get the customer with the specific Id from the db
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
-            
-            // If existing customer exist in db it will be returned otherwise null 
-            if (customer == null)
-            {
-                return BadRequest();
-            }
-
-            var viewModel = new CustomerFormViewModel()
-            {
-                Customer = customer,
-                MembershipTypes = _context.MembershipTypes.ToList()
-            };
-            return View("CustomerForm", viewModel);
         }
     }
 }

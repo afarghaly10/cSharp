@@ -15,14 +15,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customers</h2>
+<h2 style="margin-top: 10px">Customers</h2>
+<hr>
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("New", "Customers")'">New Customer</button>
 @if (!Model.Any())
 {
     <p>We don't have any customers yet.</p>
 }
 else
 {
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="margin-top: 10px">
         <thead>
             <tr>
                 <th>Customer</th>

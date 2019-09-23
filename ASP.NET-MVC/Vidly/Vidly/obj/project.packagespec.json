@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj",
+    "projectUniqueName": "/Users/a.farghaly/Desktop/GitHub/cSharp/ASP.NET-MVC/Vidly/Vidly/Vidly.csproj",
     "projectName": "Vidly",
-    "projectPath": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/Vidly.csproj",
-    "outputPath": "/Users/a.farghaly/Desktop/languages/C#/Labs/NETCoreMVC/Vidly/Vidly/obj/",
+    "projectPath": "/Users/a.farghaly/Desktop/GitHub/cSharp/ASP.NET-MVC/Vidly/Vidly/Vidly.csproj",
+    "outputPath": "/Users/a.farghaly/Desktop/GitHub/cSharp/ASP.NET-MVC/Vidly/Vidly/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

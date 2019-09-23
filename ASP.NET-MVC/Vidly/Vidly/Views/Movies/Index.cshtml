@@ -1,3 +1,4 @@
+@using Vidly.ViewModels
 @model IEnumerable<Vidly.Models.Movie>
 
 @{
@@ -5,14 +6,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movies</h2>
+<h2 style="margin-top: 10px">Movies</h2>
+<hr>
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("New", "Movies")'">New Movie</button>
 @if (!Model.Any())
 {
     <p>We don't have any customers yet.</p>
 }
 else
 {
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="margin-top: 10px">
         <thead>
             <tr>
                 <th>Movie</th>
@@ -23,7 +26,7 @@ else
             @foreach (var movie in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+                    <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
                     <td>@movie.Genre.Name</td>
                 </tr>
             }
