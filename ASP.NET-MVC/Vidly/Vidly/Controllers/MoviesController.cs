@@ -30,6 +30,7 @@ namespace Vidly.Controllers
             var genre = _context.Genre.ToList();
             var viewModel = new MovieViewModel
             {
+                Movie = new Movie(),
                 Genres = genre
             };
             return View(viewModel);
@@ -58,9 +59,38 @@ namespace Vidly.Controllers
         [HttpPost]
         public IActionResult Save(Movie movie)
         {
-            _context.Movies.Add(movie);
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genre.ToList()
+                };
+                return View("New",viewModel);
+            }
 
-            _context.SaveChanges();
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleasedDate = movie.ReleasedDate;
+                movieInDb.Genre = movie.Genre;
+                movieInDb.NumberInStock = movie.NumberInStock;
+            }
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
             return RedirectToAction("Index", "Movies");
         }
